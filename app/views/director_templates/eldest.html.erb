@@ -1,0 +1,12 @@
+<h1>Eldest director</h1>
+
+<p>
+  <% dob = Director.minimum(:dob) %>
+  <% name = Director.where({:dob => dob })[0].name  %>
+  <% id = Director.where({:dob => dob })[0].id %>
+
+  The eldest director in our dataset right now is <a href="/directors/<%= id %>"><%= name %></a>, born on <%= dob.strftime("%B %d, %Y.") %>
+
+</p>
+
+<p>(<a href="https://strftime.net/">http://strftime.net/</a> is handy for putting together the formatting strings for the .strftime method.)</p>
